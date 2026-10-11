@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 Social Studies | Kim Nexus</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #080c16;
+  color: #f3f7ff;
+  line-height: 1.7;
+}
+header {
+  background: #111a2b;
+  padding: 22px 7%;
+  border-bottom: 1px solid #293449;
+}
+.brand { color: #62f5c4; font-weight: bold; }
+main { max-width: 950px; margin: auto; padding: 30px 20px; }
+.tag { color: #62f5c4; letter-spacing: 2px; font-weight: bold; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
+h2 { color: #62f5c4; }
+.card {
+  background: #111a2b;
+  border: 1px solid #293449;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 18px 0;
+}
+.muted { color: #b4c0d3; }
+a { color: #62f5c4; }
+button {
+  background: #62f5c4;
+  color: #08111c;
+  border: 0;
+  border-radius: 7px;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+input {
+  width: 100%;
+  max-width: 550px;
+  padding: 10px;
+  border-radius: 7px;
+  border: 1px solid #64748b;
+  margin: 8px 0;
+}
+.answer { display: none; color: #62f5c4; margin-top: 10px; }
+footer { margin-top: 35px; color: #b4c0d3; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">KIM NEXUS</div>
+  <div>Think Beyond. Build What Matters.</div>
+</header>
+
+<main>
+  <div class="tag">GRADE 9 • SOCIAL STUDIES</div>
+  <h1>Revision and Practice Hub</h1>
+  <p class="muted">
+    Review key concepts, test your understanding and prepare for assessment.
+    These are practice materials, not official KJSEA examination questions.
+  </p>
+
+  <section class="card">
+    <h2>1. Multipurpose River Projects</h2>
+    <p><strong>Meaning:</strong> Projects that use river water to serve several purposes.</p>
+    <p><strong>Uses include:</strong></p>
+    <ul>
+      <li>Generating hydroelectric power.</li>
+      <li>Irrigating crops.</li>
+      <li>Controlling floods.</li>
+      <li>Providing water for homes and industries.</li>
+      <li>Supporting fishing, recreation and tourism.</li>
+    </ul>
+    <p><strong>Possible challenges:</strong> Displacement of communities, high construction costs, changes to river ecosystems and the loss of farmland.</p>
+  </section>
+
+  <section class="card">
+    <h2>2. Map Skills</h2>
+    <ul>
+      <li><strong>Scale:</strong> Shows the relationship between distance on a map and distance on the ground.</li>
+      <li><strong>Direction:</strong> Describes the position of one place in relation to another.</li>
+      <li><strong>Grid references:</strong> Help locate places on a map.</li>
+      <li><strong>Contours:</strong> Lines joining places of equal height above sea level.</li>
+    </ul>
+    <p><strong>Example:</strong> If a map scale is 1:50,000, then 1 cm on the map represents 50,000 cm, or 500 metres, on the ground.</p>
+  </section>
+
+  <section class="card">
+    <h2>3. Practice Questions</h2>
+
+    <p><strong>Question 1:</strong> State two benefits of multipurpose river projects.</p>
+    <input id="q1" placeholder="Type your answer here">
+    <button onclick="showAnswer('a1')">Show suggested answer</button>
+    <p class="answer" id="a1">Examples: hydroelectric power generation and irrigation. Other valid benefits include flood control and water supply.</p>
+
+    <hr>
+
+    <p><strong>Question 2:</strong> A map has a scale of 1:50,000. Two places are 4 cm apart on the map. Calculate their ground distance in kilometres.</p>
+    <input id="q2" placeholder="Type your answer here">
+    <button onclick="showAnswer('a2')">Show answer</button>
+    <p class="answer" id="a2">4 × 50,000 = 200,000 cm = 2 km.</p>
+
+    <hr>
+
+    <p><strong>Question 3:</strong> Explain two challenges associated with constructing dams.</p>
+    <input id="q3" placeholder="Type your answer here">
+    <button onclick="showAnswer('a3')">Show suggested answer</button>
+    <p class="answer" id="a3">Examples: communities may be displaced, construction is expensive, and natural habitats may be affected.</p>
+  </section>
+
+  <section class="card">
+    <h2>4. Study Checklist</h2>
+    <label><input type="checkbox"> I can explain the uses of multipurpose river projects.</label><br>
+    <label><input type="checkbox"> I can describe challenges associated with dams.</label><br>
+    <label><input type="checkbox"> I can calculate ground distance using map scales.</label><br>
+    <label><input type="checkbox"> I have attempted all the practice questions.</label>
+  </section>
+
+  <footer>
+    <p><a href="revision.html">← Back to Revision Hub</a></p>
+    <p>Kim Nexus | Learning through practice.</p>
+  </footer>
+</main>
+
+<script>
+function showAnswer(id) {
+  const answer = document.getElementById(id);
+  answer.style.display =
+    answer.style.display === "block" ? "none" : "block";
+}
+</script>
+</body>
+</html>

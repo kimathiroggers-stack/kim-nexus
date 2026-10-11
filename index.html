@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kim Nexus — educator, creator, technology explorer, and lifelong learner.">
+<title>Kim Nexus | Ideas into Impact</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2e;--panel2:#17223a;--text:#f4f7fb;--muted:#a8b3c7;--accent:#76e4c2;--accent2:#8ba8ff;--line:rgba(255,255,255,.11);--shadow:0 18px 50px rgba(0,0,0,.22)}
+body.light{--bg:#f5f7fb;--panel:#fff;--panel2:#edf2fa;--text:#142036;--muted:#59667d;--accent:#087f68;--accent2:#405bd6;--line:rgba(20,32,54,.12);--shadow:0 18px 50px rgba(22,36,60,.09)}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,rgba(139,168,255,.12),transparent 32%),var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6;transition:background .25s,color .25s}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:850;letter-spacing:-.04em;font-size:1.25rem}.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:22px;align-items:center;font-size:.9rem;color:var(--muted)}
+.navlinks a:hover{color:var(--accent)}
+button,.btn{border:0;border-radius:999px;padding:11px 17px;font-weight:750;cursor:pointer;font-size:.9rem;transition:transform .2s,opacity .2s}
+button:hover,.btn:hover{transform:translateY(-2px)}
+.theme{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
+.hero{padding:92px 0 72px;display:grid;grid-template-columns:1.4fr .8fr;gap:50px;align-items:center;min-height:570px}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:850}
+h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:1.02;letter-spacing:-.065em;margin:18px 0 22px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:1.15rem;max-width:620px;color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.primary{background:var(--accent);color:#071b19}.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+.hero-card{padding:26px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,var(--panel),var(--panel2));box-shadow:var(--shadow);transform:rotate(1.5deg)}
+.avatar{height:220px;border-radius:18px;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,rgba(118,228,194,.28),transparent 40%),linear-gradient(135deg,#243b5a,#121a2e);font-size:5rem}
+.hero-card h3{margin:18px 0 3px;font-size:1.25rem}.hero-card p{color:var(--muted);margin:0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{font-size:.75rem;border:1px solid var(--line);padding:5px 10px;border-radius:999px;color:var(--muted)}
+section{padding:76px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:30px}
+h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.05em;line-height:1.1;margin:8px 0}
+.section-intro{max-width:560px;color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+.icon{font-size:1.6rem}.card h3{margin:12px 0 7px}.card p{color:var(--muted);margin:0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.callout{background:linear-gradient(135deg,rgba(118,228,194,.12),rgba(139,168,255,.12));border:1px solid var(--line);border-radius:22px;padding:28px}
+.list{padding-left:20px;color:var(--muted)}.list li{margin:8px 0}
+.tag{display:inline-block;background:var(--panel2);color:var(--accent);border-radius:8px;padding:4px 8px;font-size:.75rem;font-weight:800;margin-bottom:10px}
+.project-card{display:flex;flex-direction:column;min-height:220px}.project-card .more{margin-top:auto;padding-top:18px;color:var(--accent);font-weight:750}
+.blog-card small{color:var(--accent);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.contact-box{display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;padding:34px;border-radius:24px;background:var(--panel2);border:1px solid var(--line)}
+footer{padding:28px 0;color:var(--muted);font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.note{font-size:.84rem;color:var(--muted);margin-top:14px}
+@media(max-width:780px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:60px;gap:30px}.hero-card{transform:none}.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}.section-head{display:block}.section-intro{margin-top:12px}.contact-box{grid-template-columns:1fr}.avatar{height:160px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">KIM <span>NEXUS</span></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#teaching">Teaching</a><a href="#projects">Projects</a><a href="#journal">Journal</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="theme" id="themeToggle" aria-label="Toggle colour theme">☀️ / 🌙</button>
+  </div>
+</header>
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow">EDUCATION · IDEAS · TECHNOLOGY</div>
+      <h1>Think beyond.<br><em>Build what matters.</em></h1>
+      <p class="lead">Welcome to Kim Nexus — my digital home for education, ideas, technology, personal growth, and projects built with purpose.</p>
+      <div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn secondary" href="#about">A little about me</a></div>
+      <p class="note">A personal space for my work, ideas, learning, and next steps.</p>
+    </div>
+    <aside class="hero-card">
+      <div class="avatar" aria-label="Decorative profile placeholder">✦</div>
+      <h3>Curiosity meets action.</h3>
+      <p>Educator by profession. Explorer by mindset. Builder by practice.</p>
+      <div class="pills"><span class="pill">Education</span><span class="pill">Technology</span><span class="pill">Ideas</span><span class="pill">Growth</span></div>
+    </aside>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">01 / THE PERSON</div><h2>A work in progress.<br>A mind in motion.</h2></div><p class="section-intro">I believe good work starts with curiosity, grows through discipline, and matters most when it helps someone else.</p></div>
+      <div class="split">
+        <div class="callout"><h3>What matters to me</h3><p>Learning continuously, thinking independently, doing useful work, and building a life with more options. This site will evolve as I do.</p></div>
+        <div class="card"><h3>A few things about me</h3><ul class="list"><li>I work in education and care about helping learners understand, not just memorise.</li><li>I enjoy exploring technology and practical digital skills.</li><li>I value honest reflection, steady improvement, and meaningful challenges.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">02 / EDUCATION</div><h2>Learning should be active.</h2></div><p class="section-intro">A space for educational resources, classroom ideas, revision materials, and approaches that put learners to work.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">📚</div><h3>Learning resources</h3><p>Notes, worksheets, revision guides, and practice questions designed to make difficult ideas clearer.</p></article>
+        <article class="card"><div class="icon">🧠</div><h3>Teaching ideas</h3><p>Practical learner-centred activities, assessment strategies, and ways to make lessons more engaging.</p></article>
+        <article class="card"><div class="icon">💻</div><h3>Digital classroom</h3><p>Tools and techniques for using technology to support teaching and learning.</p></article>
+      </div>
+      <p class="note">These are starter sections. Add your actual resources and professional details before sharing the site widely.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">03 / THE LAB</div><h2>Things I’m building.</h2></div><p class="section-intro">Projects make ideas visible. Use this section to document what you create, learn, and improve.</p></div>
+      <div class="grid">
+        <article class="card project-card"><span class="tag">Education</span><h3>Teaching resource library</h3><p>A growing collection of useful classroom materials and revision resources.</p><a class="more" href="#contact">Add a project ↗</a></article>
+        <article class="card project-card"><span class="tag">Technology</span><h3>Digital skills journey</h3><p>Small experiments with websites, productivity tools, and useful technology.</p><a class="more" href="#contact">Add a project ↗</a></article>
+        <article class="card project-card"><span class="tag">Personal growth</span><h3>Learning in public</h3><p>Notes on lessons learned, ideas tested, and progress made over time.</p><a class="more" href="#journal">Read the journal ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="journal">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">04 / FIELD NOTES</div><h2>Notes from the journey.</h2></div><p class="section-intro">Short reflections and useful lessons. Replace these starter entries with your own writing when you’re ready.</p></div>
+      <div class="grid">
+        <article class="card blog-card"><small>Mindset</small><h3>Progress beats waiting for confidence</h3><p>Confidence often arrives after you start, not before. Pick one useful skill, practise it, and let evidence build belief.</p></article>
+        <article class="card blog-card"><small>Learning</small><h3>Make the learner do the thinking</h3><p>Good teaching is not a performance by the teacher. It creates the conditions for learners to think, try, explain, and improve.</p></article>
+        <article class="card blog-card"><small>Building</small><h3>Start small, then make it real</h3><p>A simple working project teaches more than a perfect plan that never leaves your notebook.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box"><div><div class="eyebrow">05 / CONNECT</div><h2>Have an idea? Let's connect.</h2><p class="section-intro">Add your preferred public email or professional social link here when you’re ready.</p></div><a class="btn primary" href="mailto:hello@example.com?subject=Hello%20Kim">Email me ↗</a></div>
+      <p class="note">Important: replace <strong>hello@example.com</strong> with an email address you’re comfortable sharing publicly. Don’t publish private contact details.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> Kim Nexus. Ideas into impact.</span><a href="#home">Back to top ↑</a></div></footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  toggle.textContent = document.body.classList.contains('light') ? '🌙 Dark mode' : '☀️ / 🌙';
+});
+</script>
+</body>
+</html>

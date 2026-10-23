@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Search Grade 7 curriculum designs by subject, strand, sub-strand, or keyword on KIM NEXUS.">
+<title>Curriculum Design Library | KIM NEXUS</title>
+<link rel="stylesheet" href="curriculum.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="KIM NEXUS home"><span class="brand-mark">KN</span><span>KIM <b>NEXUS</b><small>Think beyond. Build what matters.</small></span></a>
+  <a class="home-link" href="index.html">← Back to KIM NEXUS</a>
+</header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">TEACHER TOOLKIT · CBC</p>
+    <h1>Curriculum Design <span>Library</span></h1>
+    <p class="hero-copy">Find a curriculum design by grade, subject, strand, sub-strand, or keyword. Open the PDF or download it for offline planning.</p>
+    <div class="stats"><div><strong id="resource-count">15</strong><span>designs indexed</span></div><div><strong>2024</strong><span>revision shown in uploaded files where applicable</span></div><div><strong>PDF</strong><span>view and download</span></div></div>
+  </section>
+
+  <section class="library-panel" aria-label="Curriculum search">
+    <div class="section-heading"><div><p class="eyebrow">RESOURCE FINDER</p><h2>Find your design</h2></div><span class="badge">Grade 7 collection</span></div>
+    <div class="filters">
+      <label class="search-field"><span>Search the document text</span><input id="search" type="search" placeholder="Try “maps”, “conservation”, “algebra”, or a strand name…" autocomplete="off"></label>
+      <label><span>Grade</span><select id="grade"><option value="all">All grades</option><option value="Grade 7" selected>Grade 7</option></select></label>
+      <label><span>Subject</span><select id="subject"><option value="all">All subjects</option></select></label>
+    </div>
+    <p class="hint">Search checks the extracted text of the uploaded PDFs, including table-of-contents entries and strand/sub-strand wording where the PDF text is extractable.</p>
+    <div class="result-line"><span id="result-summary">Loading curriculum designs…</span><button id="clear" class="text-button" type="button">Clear filters</button></div>
+    <div id="cards" class="cards" aria-live="polite"></div>
+    <div id="empty" class="empty" hidden><strong>No matching design found.</strong><span>Try another keyword or clear the filters.</span></div>
+  </section>
+  <section class="notice">
+    <strong>Publishing note</strong>
+    <p>The uploaded curriculum designs contain copyright notices. Before making the PDFs publicly downloadable, confirm that public redistribution is permitted or obtain the necessary permission. You can still use this page as a catalogue and link to official sources where appropriate.</p>
+  </section>
+</main>
+<footer><span>© KIM NEXUS</span><span>Built for practical curriculum discovery</span></footer>
+<script src="curriculum.js"></script>
+</body>
+</html>

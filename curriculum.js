@@ -23,17 +23,18 @@ function render() {
   const q = searchInput.value.trim().toLowerCase();
   const grade = gradeSelect.value;
   const subject = subjectSelect.value;
-  const filtered = designs.filter(d =>
-    (grade === "all" || d.grade === grade) &&
-    (subject === "all" || d.subject === subject) &&
-    (!q || `${d.subject} ${d.grade} ${d.searchText}`.includes(q))
-  );
+  const filtered = designs.filter(d => {
+    const searchable = `${d.subject || ""} ${d.grade || ""} ${d.searchText || ""} ${d.excerpt || ""}`.toLowerCase();
+    return (grade === "all" || d.grade === grade) &&
+      (subject === "all" || d.subject === subject) &&
+      (!q || searchable.includes(q));
+  });
   summary.textContent = `${filtered.length} of ${designs.length} curriculum designs`;
   cards.innerHTML = filtered.map(d => `
     <article class="card">
       <div class="card-top"><span class="pdf-icon">PDF</span><span class="grade-pill">${esc(d.grade)}</span></div>
       <h3>${esc(d.subject)}</h3>
-      <p class="meta">${d.pages} pages · Curriculum design</p>
+      <p class="meta">${Number.isFinite(Number(d.pages)) ? `${Number(d.pages)} pages` : "Page count unavailable`} · Curriculum design</p>
       <p class="excerpt">${esc(d.excerpt || "Open the curriculum design to view its contents.")}</p>
       <div class="card-actions">
         <a class="btn btn-primary" href="${encodeURI(d.file)}" target="_blank" rel="noopener">View PDF ↗</a>
@@ -46,7 +47,7 @@ searchInput.addEventListener("input", render);
 gradeSelect.addEventListener("change", render);
 subjectSelect.addEventListener("change", render);
 document.getElementById("clear").addEventListener("click", () => {
-  searchInput.value = ""; gradeSelect.value = "Grade 7"; subjectSelect.value = "all"; render();
+  searchInput.value = ""; gradeSelect.value = "all"; subjectSelect.value = "all"; render();
 });
 fetch("curriculum-search-index.json")
   .then(response => { if (!response.ok) throw new Error("Could not load the search index"); return response.json(); })

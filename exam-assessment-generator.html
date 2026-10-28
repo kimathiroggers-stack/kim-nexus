@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KIM NEXUS Exam and Assessment Generator for teachers.">
+<title>KIM NEXUS | Exam & Assessment Generator</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{color-scheme:dark;--bg:#070b16;--panel:#111a30;--panel2:#15223e;--ink:#f3f7ff;--muted:#9baac8;--line:rgba(151,177,255,.17);--cyan:#67f5e4;--blue:#7c9cff;--good:#9bf0b4;--warn:#ffd58a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;background:radial-gradient(ellipse at top right,rgba(103,245,228,.08),transparent 38%),var(--bg);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:rgba(7,11,22,.88);position:sticky;top:0;z-index:5;backdrop-filter:blur(16px)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font:700 1.05rem "Space Grotesk",sans-serif;letter-spacing:.03em}.brand span{display:block;color:var(--muted);font:500 .7rem "DM Sans",sans-serif;letter-spacing:.04em}
+.nav a.back{color:var(--cyan);font-size:.9rem}
+main{padding:34px 0 60px}
+.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:700}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.2}
+h1{font-size:clamp(2rem,4vw,3.2rem);margin:.4rem 0 .7rem}
+.lead{max-width:760px;color:var(--muted);margin:0 0 24px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}.badge{border:1px solid var(--line);border-radius:99px;padding:5px 10px;color:#cbd7f4;font-size:.78rem}
+.layout{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.1fr);gap:20px;align-items:start}
+.card{background:linear-gradient(155deg,rgba(21,34,62,.95),rgba(13,21,39,.97));border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 16px 45px rgba(0,0,0,.12)}
+.card h2{font-size:1.2rem;margin:0 0 16px}
+label{display:block;font-size:.84rem;color:#dce5fa;font-weight:600;margin-bottom:6px}
+input,select,textarea{width:100%;background:#091225;color:var(--ink);border:1px solid rgba(151,177,255,.25);border-radius:10px;padding:11px 12px;font:inherit;font-size:.92rem;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(103,245,228,.08)}
+textarea{resize:vertical;min-height:82px}
+.field{margin-bottom:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{border:0;border-radius:11px;padding:11px 15px;font:700 .9rem "DM Sans",sans-serif;cursor:pointer;transition:transform .15s,opacity .15s}
+button:hover{transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed}
+.primary{background:linear-gradient(110deg,var(--cyan),#a4d3ff);color:#07111f}
+.secondary{background:#1c2b4b;color:var(--ink);border:1px solid var(--line)}
+.danger{background:rgba(255,130,130,.1);color:#ffb5b5;border:1px solid rgba(255,130,130,.22)}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.note{color:var(--muted);font-size:.82rem;margin:10px 0 0}
+.question-list{display:grid;gap:12px}
+.q-item{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(5,11,24,.35)}
+.q-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.q-number{color:var(--cyan);font-weight:700;font-size:.86rem}
+.q-item textarea{min-height:68px}
+.q-controls{display:grid;grid-template-columns:1fr 100px;gap:10px}
+.q-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.small-label{font-size:.75rem;color:var(--muted)}
+.preview{background:#fff;color:#172033;border-radius:14px;padding:28px;min-height:260px}
+.preview h2,.preview h3{color:#172033}.preview .exam-meta{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;font-size:.9rem}
+.preview hr{border:0;border-top:1px solid #d6dbe5;margin:16px 0}
+.preview .qrow{margin:14px 0}.preview .marks{float:right;font-weight:700}.preview .answer{color:#394861;font-size:.9rem;margin-top:5px}
+.empty{color:var(--muted);text-align:center;padding:28px 12px;border:1px dashed var(--line);border-radius:14px}
+.footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:24px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.nav{min-height:64px}}
+@media(max-width:520px){.card{padding:16px}.grid2,.q-meta,.q-controls{grid-template-columns:1fr}.preview{padding:18px}.preview .exam-meta{grid-template-columns:1fr}}
+@media print{
+  body{background:#fff;color:#111;font-family:Arial,sans-serif}
+  header,.intro,.builder-card,.editor-card,.no-print,.footer{display:none!important}
+  main{padding:0}.wrap{width:100%;margin:0}.layout{display:block}.preview-card{border:0;box-shadow:none;padding:0;background:#fff}
+  .preview{display:block!important;border-radius:0;padding:0;color:#111;min-height:0}
+  .preview h2,.preview h3{color:#111}.preview .answer{color:#111}
+  @page{size:A4;margin:18mm}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">KIM NEXUS <span>Think beyond. Build what matters.</span></a>
+    <a class="back" href="index.html">← Back to homepage</a>
+  </div>
+</header>
+<main class="wrap">
+  <section class="intro">
+    <div class="eyebrow">Teacher tools · Assessment</div>
+    <h1>Exam & Assessment Generator</h1>
+    <p class="lead">Build an editable test, topical assessment, or examination with a marking scheme. Start from question templates, add your own questions, then print or save the finished paper as a PDF.</p>
+    <div class="badges"><span class="badge">Grades 1–9</span><span class="badge">Editable question bank</span><span class="badge">Marking scheme</span><span class="badge">Print / PDF</span><span class="badge">Works in your browser</span></div>
+  </section>
+
+  <div class="layout">
+    <section class="card builder-card">
+      <h2>1. Assessment details</h2>
+      <div class="field"><label for="school">School name (optional)</label><input id="school" placeholder="Enter school name"></div>
+      <div class="grid2">
+        <div class="field"><label for="grade">Grade</label><select id="grade"><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option selected>Grade 8</option><option>Grade 9</option></select></div>
+        <div class="field"><label for="subject">Subject</label><select id="subject"></select></div>
+      </div>
+      <div class="field"><label for="title">Assessment title</label><input id="title" value="Topical Assessment" placeholder="e.g. End of Term Examination"></div>
+      <div class="grid2">
+        <div class="field"><label for="strand">Strand / topic</label><input id="strand" placeholder="e.g. Map Reading"></div>
+        <div class="field"><label for="date">Date</label><input id="date" type="date"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="duration">Duration</label><input id="duration" value="40 minutes" placeholder="e.g. 1 hour"></div>
+        <div class="field"><label for="total">Target total marks</label><input id="total" type="number" min="1" max="500" value="20"></div>
+      </div>
+      <div class="field"><label for="instructions">General instructions</label><textarea id="instructions">Answer all questions. Read each question carefully.</textarea></div>
+
+      <h2 style="margin-top:24px">2. Add questions</h2>
+      <div class="field"><label for="template">Start from a template</label>
+        <select id="template">
+          <option value="mcq">Multiple-choice question</option>
+          <option value="short">Short-answer question</option>
+          <option value="structured">Structured question</option>
+          <option value="explain">Explain / give reasons</option>
+          <option value="essay">Extended response / essay</option>
+          <option value="truefalse">True or false</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button class="primary" id="addTemplate">＋ Add template question</button>
+        <button class="secondary" id="addBlank">＋ Add blank question</button>
+      </div>
+      <p class="note">Templates provide a starting structure, not verified curriculum-specific content. Edit every question and answer to match the curriculum design and the content you taught.</p>
+      <div class="actions">
+        <button class="secondary" id="loadSample">Load sample questions</button>
+        <button class="danger" id="clearAll">Clear questions</button>
+      </div>
+    </section>
+
+    <section class="card editor-card">
+      <h2>3. Edit questions and marking scheme</h2>
+      <div id="questions" class="question-list"></div>
+      <div class="actions">
+        <button class="primary" id="generate">Generate assessment preview</button>
+        <button class="secondary" id="copyText">Copy paper + marking scheme</button>
+      </div>
+      <p class="note">Use the answer / marking guide field to create the marking scheme. Marks are added automatically in the preview.</p>
+    </section>
+
+    <section class="card preview-card" style="grid-column:1/-1">
+      <div class="no-print" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+        <h2 style="margin:0">4. Preview and export</h2>
+        <div class="actions" style="margin:0"><button class="primary" id="print">Print / Save as PDF</button></div>
+      </div>
+      <div id="preview" class="preview"><div class="empty">Your assessment preview will appear here. Add or edit questions, then select <strong>Generate assessment preview</strong>.</div></div>
+    </section>
+  </div>
+  <div class="footer">KIM NEXUS · A teacher-built starting point. Always review questions, answers, marks, accessibility, and curriculum alignment before use.</div>
+</main>
+<script>
+const subjectMap = {
+  "Grade 1":["English","Kiswahili","Mathematics","Environmental Activities","Creative Activities","Religious Education"],
+  "Grade 2":["English","Kiswahili","Mathematics","Environmental Activities","Creative Activities","Religious Education"],
+  "Grade 3":["English","Kiswahili","Mathematics","Environmental Activities","Creative Activities","Religious Education"],
+  "Grade 4":["English","Kiswahili","Mathematics","Science and Technology","Social Studies","Agriculture and Nutrition","Creative Arts","Religious Education"],
+  "Grade 5":["English","Kiswahili","Mathematics","Science and Technology","Social Studies","Agriculture and Nutrition","Creative Arts","Religious Education"],
+  "Grade 6":["English","Kiswahili","Mathematics","Science and Technology","Social Studies","Agriculture and Nutrition","Creative Arts","Religious Education"],
+  "Grade 7":["English","Kiswahili","Mathematics","Integrated Science","Social Studies","Agriculture","Pre-Technical Studies","Creative Arts and Sports","Religious Education"],
+  "Grade 8":["English","Kiswahili","Mathematics","Integrated Science","Social Studies","Agriculture","Pre-Technical Studies","Creative Arts and Sports","Religious Education"],
+  "Grade 9":["English","Kiswahili","Mathematics","Integrated Science","Social Studies","Agriculture","Pre-Technical Studies","Creative Arts and Sports","Religious Education"]
+};
+const templates = {
+ mcq:{q:"Which statement best describes [topic/concept]?",opts:"A. [Option A]\\nB. [Option B]\\nC. [Option C]\\nD. [Option D]",a:"Correct answer: [letter]. Explanation: [brief reason].",marks:1,type:"Multiple choice"},
+ short:{q:"State two facts about [topic].",opts:"",a:"Award 1 mark for each correct fact: [fact 1], [fact 2].",marks:2,type:"Short answer"},
+ structured:{q:"(a) Define [key term]. (2 marks)\\n(b) State two characteristics of [topic]. (2 marks)\\n(c) Explain one importance of [topic]. (2 marks)",opts:"",a:"(a) Accept an accurate definition (2). (b) 1 mark each for two valid characteristics. (c) 2 marks for a relevant explanation.",marks:6,type:"Structured"},
+ explain:{q:"Explain two reasons why [event/process/concept] is important.",opts:"",a:"Award up to 2 marks per well-explained reason. Accept other relevant responses.",marks:4,type:"Explain"},
+ essay:{q:"Discuss [topic]. Include key facts, examples, and a conclusion.",opts:"",a:"Suggested marking guide: relevant knowledge (4), explanation and examples (3), organization and clarity (2), conclusion (1). Adapt to the task.",marks:10,type:"Extended response"},
+ truefalse:{q:"Write TRUE or FALSE: [insert a clear statement about the topic].",opts:"",a:"Correct response: [TRUE/FALSE].",marks:1,type:"True or false"}
+};
+let questions = [];
+const $ = id => document.getElementById(id);
+function refreshSubjects(){
+ const grade=$("grade").value, old=$("subject").value;
+ $("subject").innerHTML=(subjectMap[grade]||[]).map(s=>`<option>${s}</option>`).join("");
+ if((subjectMap[grade]||[]).includes(old)) $("subject").value=old;
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function addQuestion(t="blank",data={}){
+ const base=templates[t]||{};
+ questions.push({id:Date.now()+Math.random(),type:data.type||base.type||"Question",text:data.text??base.q??"",options:data.options??base.opts??"",answer:data.answer??base.a??"",marks:Number(data.marks??base.marks??1)});
+ renderQuestions();
+}
+function renderQuestions(){
+ const box=$("questions");
+ if(!questions.length){box.innerHTML='<div class="empty">No questions yet. Add a template question or load the sample set.</div>';return;}
+ box.innerHTML=questions.map((q,i)=>`<article class="q-item" data-id="${q.id}">
+ <div class="q-top"><span class="q-number">Question ${i+1} · ${esc(q.type)}</span><button class="danger remove" type="button">Remove</button></div>
+ <div class="field"><label>Question text</label><textarea class="qtext" placeholder="Write the question">${esc(q.text)}</textarea></div>
+ <div class="field"><label>Options (if needed; one per line)</label><textarea class="qoptions" placeholder="A. ...&#10;B. ...">${esc(q.options)}</textarea></div>
+ <div class="field"><label>Answer / marking guide</label><textarea class="qanswer" placeholder="Expected answer and allocation of marks">${esc(q.answer)}</textarea></div>
+ <div class="q-meta"><div><label>Question type</label><select class="qtype">${["Multiple choice","Short answer","Structured","Explain","Extended response","True or false","Question"].map(x=>`<option ${q.type===x?"selected":""}>${x}</option>`).join("")}</select></div><div><label>Marks</label><input class="qmarks" type="number" min="0" max="100" value="${Math.max(0,Number(q.marks)||0)}"></div></div>
+ </article>`).join("");
+ box.querySelectorAll(".q-item").forEach((el,i)=>{
+  el.querySelector(".qtext").addEventListener("input",e=>questions[i].text=e.target.value);
+  el.querySelector(".qoptions").addEventListener("input",e=>questions[i].options=e.target.value);
+  el.querySelector(".qanswer").addEventListener("input",e=>questions[i].answer=e.target.value);
+  el.querySelector(".qmarks").addEventListener("input",e=>questions[i].marks=Math.max(0,Number(e.target.value)||0));
+  el.querySelector(".qtype").addEventListener("change",e=>questions[i].type=e.target.value);
+  el.querySelector(".remove").addEventListener("click",()=>{questions.splice(i,1);renderQuestions();});
+ });
+}
+function getTotal(){return questions.reduce((sum,q)=>sum+(Number(q.marks)||0),0)}
+function generatePreview(){
+ const total=getTotal(), target=Number($("total").value)||total;
+ const date=$("date").value?new Date($("date").value+"T12:00:00").toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"}):"________________";
+ const school=$("school").value.trim();
+ let html=`${school?`<h2 style="text-align:center;margin:0">${esc(school)}</h2>`:""}
+ <h2 style="text-align:center;margin:4px 0">${esc($("title").value||"Assessment")}</h2>
+ <h3 style="text-align:center;margin:4px 0">${esc($("grade").value)} · ${esc($("subject").value)}</h3>
+ <div class="exam-meta"><div><strong>Strand / topic:</strong> ${esc($("strand").value||"________________")}</div><div><strong>Date:</strong> ${esc(date)}</div><div><strong>Duration:</strong> ${esc($("duration").value||"________________")}</div><div><strong>Total marks:</strong> ${total}</div></div>
+ <hr><p><strong>Learner name:</strong> __________________________________ &nbsp; <strong>Adm. No.:</strong> __________________</p>
+ <p><strong>Instructions:</strong> ${esc($("instructions").value||"Answer all questions.").replace(/\n/g,"<br>")}</p><hr>`;
+ if(!questions.length) html+='<p>No questions have been added yet.</p>';
+ questions.forEach((q,i)=>{
+  html+=`<div class="qrow"><span class="marks">(${Number(q.marks)||0} mark${Number(q.marks)===1?"":"s"})</span><strong>${i+1}.</strong> ${esc(q.text).replace(/\n/g,"<br>")}`;
+  if(q.options.trim()) html+=`<div style="white-space:pre-line;margin:7px 0 0 24px">${esc(q.options)}</div>`;
+  html+='</div>';
+ });
+ html+=`<hr><p style="text-align:center"><strong>END OF QUESTION PAPER</strong></p>
+ <section style="page-break-before:always;margin-top:30px"><h2>MARKING SCHEME — TEACHER COPY</h2><p><strong>${esc($("grade").value)} · ${esc($("subject").value)} · ${esc($("title").value||"Assessment")}</strong></p>`;
+ questions.forEach((q,i)=>{html+=`<div class="qrow"><strong>${i+1}. (${Number(q.marks)||0} marks)</strong><div class="answer">${esc(q.answer||"Marking guide not provided.").replace(/\n/g,"<br>")}</div></div>`;});
+ html+=`<hr><p><strong>Total available:</strong> ${total} marks</p></section>`;
+ if(target!==total) html=`<div style="background:#fff3d7;border:1px solid #e5c77b;padding:10px;margin-bottom:14px;color:#5a4210"><strong>Teacher check:</strong> The target is ${target} marks, but your current questions add up to ${total}. Adjust the question marks or target before printing.</div>`+html;
+ $("preview").innerHTML=html;
+}
+function loadSample(){
+ questions=[];
+ const subj=$("subject").value;
+ if(subj==="Social Studies"){
+  addQuestion("mcq",{text:"Which of the following is a useful practice when reading a map?",options:"A. Ignoring the key\\nB. Checking the title, key and scale\\nC. Guessing all distances\\nD. Turning the map upside down",answer:"Correct answer: B. The title, key and scale help the reader interpret map information.",marks:1});
+  addQuestion("short",{text:"State two pieces of information that a map key can provide.",answer:"Award 1 mark each for valid information, e.g. meaning of symbols and colours used on the map.",marks:2});
+  addQuestion("explain",{text:"Explain why map scale is important when estimating real distances.",answer:"Award up to 2 marks for explaining that scale represents the relationship between map distance and ground distance and enables distance estimation.",marks:4});
+ } else {
+  addQuestion("mcq",{text:`Which statement best describes an important idea in ${subj}?`,options:"A. [Plausible option]\\nB. [Plausible option]\\nC. [Plausible option]\\nD. [Plausible option]",answer:"Teacher must replace the options and confirm the correct answer before use.",marks:1});
+  addQuestion("short",{text:`State two facts about the topic you have taught in ${subj}.`,answer:"Award 1 mark for each correct, curriculum-aligned fact.",marks:2});
+  addQuestion("structured",{text:"(a) Define one key term from the topic. (2 marks)\\n(b) Give two examples or characteristics. (2 marks)",answer:"Award marks for an accurate definition and two relevant examples or characteristics.",marks:4});
+ }
+ $("title").value="Topical Assessment";
+ $("strand").value=$("strand").value||"Map Reading / selected topic";
+ $("total").value=getTotal();
+ renderQuestions();generatePreview();
+}
+function copyPaper(){
+ generatePreview();
+ const textContent=$("preview").innerText;
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(textContent).then(()=>alert("Assessment paper and marking scheme copied."),()=>fallbackCopy(textContent));}
+ else fallbackCopy(textContent);
+}
+function fallbackCopy(t){const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();alert("Assessment paper and marking scheme copied.");}
+$("grade").addEventListener("change",refreshSubjects);
+$("addTemplate").addEventListener("click",()=>addQuestion($("template").value));
+$("addBlank").addEventListener("click",()=>addQuestion("blank",{type:"Question",text:"",options:"",answer:"",marks:1}));
+$("generate").addEventListener("click",generatePreview);
+$("print").addEventListener("click",()=>{generatePreview();window.print()});
+$("copyText").addEventListener("click",copyPaper);
+$("clearAll").addEventListener("click",()=>{if(confirm("Remove all questions?")){questions=[];renderQuestions();generatePreview()}});
+$("loadSample").addEventListener("click",loadSample);
+refreshSubjects();addQuestion("mcq");addQuestion("short");generatePreview();
+</script>
+</body>
+</html>

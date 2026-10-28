@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KIM NEXUS CBC lesson notes builder for teachers.">
+<title>KIM NEXUS | CBC Teaching Notes Builder</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{color-scheme:dark;--bg:#070b16;--panel:#111a30;--panel2:#15223e;--ink:#f3f7ff;--muted:#9baac8;--line:rgba(151,177,255,.17);--cyan:#67f5e4;--blue:#7c9cff}
+*{box-sizing:border-box}body{margin:0;font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;background:radial-gradient(ellipse at top right,rgba(103,245,228,.08),transparent 38%),var(--bg);color:var(--ink)}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:rgba(7,11,22,.9);position:sticky;top:0;z-index:5;backdrop-filter:blur(16px)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font:700 1.05rem "Space Grotesk",sans-serif;letter-spacing:.03em}.brand span{display:block;color:var(--muted);font:500 .7rem "DM Sans",sans-serif}.back{color:var(--cyan);font-size:.9rem}
+main{padding:34px 0 60px}.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:700}h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.2}h1{font-size:clamp(2rem,4vw,3.1rem);margin:.4rem 0 .7rem}.lead{max-width:790px;color:var(--muted);margin:0 0 24px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}.badge{border:1px solid var(--line);border-radius:99px;padding:5px 10px;color:#cbd7f4;font-size:.78rem}
+.layout{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.1fr);gap:20px;align-items:start}.card{background:linear-gradient(155deg,rgba(21,34,62,.95),rgba(13,21,39,.97));border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 16px 45px rgba(0,0,0,.12)}.card h2{font-size:1.2rem;margin:0 0 16px}
+label{display:block;font-size:.84rem;color:#dce5fa;font-weight:600;margin-bottom:6px}input,select,textarea{width:100%;background:#091225;color:var(--ink);border:1px solid rgba(151,177,255,.25);border-radius:10px;padding:11px 12px;font:inherit;font-size:.92rem;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--cyan)}textarea{resize:vertical;min-height:92px}.field{margin-bottom:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{border:0;border-radius:11px;padding:11px 15px;font:700 .9rem "DM Sans",sans-serif;cursor:pointer;transition:transform .15s}button:hover{transform:translateY(-1px)}.primary{background:linear-gradient(110deg,var(--cyan),#a4d3ff);color:#07111f}.secondary{background:#1c2b4b;color:var(--ink);border:1px solid var(--line)}.danger{background:rgba(255,130,130,.1);color:#ffb5b5;border:1px solid rgba(255,130,130,.22)}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.note{color:var(--muted);font-size:.82rem;margin:10px 0 0}
+.preview{background:#fff;color:#172033;border-radius:14px;padding:28px;min-height:300px}.preview h2,.preview h3,.preview h4{color:#172033}.preview h2{text-align:center;margin:0 0 5px}.preview .meta{display:grid;grid-template-columns:1fr 1fr;gap:5px 18px;font-size:.9rem;margin:18px 0}.preview hr{border:0;border-top:1px solid #d6dbe5;margin:18px 0}.preview section{margin:18px 0}.preview li{margin:5px 0}.empty{color:var(--muted);text-align:center;padding:28px 12px;border:1px dashed var(--line);border-radius:14px}.footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:24px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.nav{min-height:64px}}@media(max-width:520px){.card{padding:16px}.grid2,.preview .meta{grid-template-columns:1fr}.preview{padding:18px}}
+@media print{body{background:#fff;color:#111;font-family:Arial,sans-serif}header,.intro,.builder,.no-print,.footer{display:none!important}main{padding:0}.wrap{width:100%;margin:0}.layout{display:block}.preview-card{border:0;box-shadow:none;padding:0;background:#fff}.preview{border-radius:0;padding:0;color:#111;min-height:0}.preview h2,.preview h3,.preview h4{color:#111}@page{size:A4;margin:18mm}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="index.html">KIM NEXUS <span>Think beyond. Build what matters.</span></a><a class="back" href="index.html">← Back to homepage</a></div></header>
+<main class="wrap">
+<section class="intro"><div class="eyebrow">Teacher tools · CBC planning</div><h1>CBC Teaching Notes Builder</h1><p class="lead">Organize lesson notes around the grade, subject, strand, sub-strand, learning outcomes, learning experiences, assessment and reflection. Enter the curriculum content you are teaching, then preview and print your notes.</p><div class="badges"><span class="badge">Grades 1–9</span><span class="badge">Editable lesson structure</span><span class="badge">Learner-centred activities</span><span class="badge">Print / PDF</span><span class="badge">Runs in browser</span></div></section>
+<div class="layout">
+<section class="card builder">
+<h2>1. Lesson details</h2>
+<div class="field"><label for="school">School</label><input id="school" placeholder="School name (optional)"></div>
+<div class="grid2"><div class="field"><label for="grade">Grade</label><select id="grade"><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option selected>Grade 8</option><option>Grade 9</option></select></div><div class="field"><label for="subject">Subject</label><select id="subject"></select></div></div>
+<div class="grid2"><div class="field"><label for="date">Date</label><input id="date" type="date"></div><div class="field"><label for="duration">Duration</label><input id="duration" value="40 minutes"></div></div>
+<div class="field"><label for="strand">Strand</label><input id="strand" placeholder="Enter strand exactly as in the curriculum design"></div>
+<div class="field"><label for="substrand">Sub-strand</label><input id="substrand" placeholder="Enter sub-strand exactly as in the curriculum design"></div>
+<div class="field"><label for="outcomes">Specific learning outcomes</label><textarea id="outcomes" placeholder="Paste or type the outcomes from the curriculum design."></textarea></div>
+<div class="field"><label for="keycontent">Key content / notes</label><textarea id="keycontent" placeholder="Enter the accurate content, concepts, facts, examples or vocabulary learners need to understand."></textarea></div>
+<div class="field"><label for="prior">Prior knowledge / introduction</label><textarea id="prior" placeholder="What learners already know; a short starter question, object, image or situation."></textarea></div>
+<div class="field"><label for="resources">Learning resources</label><textarea id="resources" placeholder="Textbooks, maps, charts, locally available materials, digital resources, etc."></textarea></div>
+<div class="field"><label for="activities">Learner-centred learning experiences</label><textarea id="activities" placeholder="Describe what learners will do: investigate, discuss, sort, map, demonstrate, solve, present, practise."></textarea></div>
+<div class="field"><label for="teacherrole">Teacher facilitation</label><textarea id="teacherrole" placeholder="Brief prompts, modelling, explanations and support the teacher provides."></textarea></div>
+<div class="field"><label for="assessment">Assessment for learning</label><textarea id="assessment" placeholder="Questions, observation checklist, short task, learner explanation or exit ticket."></textarea></div>
+<div class="grid2"><div class="field"><label for="competencies">Core competencies</label><textarea id="competencies" placeholder="e.g. Communication and collaboration"></textarea></div><div class="field"><label for="values">Values / pertinent issues</label><textarea id="values" placeholder="Relevant values and pertinent and contemporary issues"></textarea></div></div>
+<div class="field"><label for="differentiation">Differentiation / learner support</label><textarea id="differentiation" placeholder="Support, extension, accessibility and varied ways to participate."></textarea></div>
+<div class="field"><label for="homework">Follow-up / extension</label><textarea id="homework" placeholder="Optional practice, home connection or extension activity."></textarea></div>
+<div class="field"><label for="reflection">Teacher reflection (after lesson)</label><textarea id="reflection" placeholder="What worked? What evidence of learning was seen? What needs reteaching?"></textarea></div>
+<div class="actions"><button class="primary" id="generate">Generate lesson notes</button><button class="secondary" id="example">Load example structure</button><button class="danger" id="clear">Clear form</button></div>
+<p class="note">This tool formats the content you enter. It does not fetch or verify official curriculum designs. Check outcomes and terminology against the relevant KICD curriculum design.</p>
+</section>
+<section class="card preview-card">
+<div class="no-print" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px"><h2 style="margin:0">2. Preview and export</h2><div class="actions" style="margin:0"><button class="primary" id="print">Print / Save as PDF</button><button class="secondary" id="copy">Copy notes</button></div></div>
+<div class="preview" id="preview"><div class="empty">Complete the lesson details and click <strong>Generate lesson notes</strong> to create your printable lesson document.</div></div>
+</section>
+</div>
+<div class="footer">KIM NEXUS · Review the lesson notes for accuracy, curriculum alignment, inclusion and learner needs before teaching.</div>
+</main>
+<script>
+const subjects={
+"Grade 1":["English","Kiswahili","Mathematics","Environmental Activities","Creative Activities","Religious Education"],
+"Grade 2":["English","Kiswahili","Mathematics","Environmental Activities","Creative Activities","Religious Education"],
+"Grade 3":["English","Kiswahili","Mathematics","Environmental Activities","Creative Activities","Religious Education"],
+"Grade 4":["English","Kiswahili","Mathematics","Science and Technology","Social Studies","Agriculture and Nutrition","Creative Arts","Religious Education"],
+"Grade 5":["English","Kiswahili","Mathematics","Science and Technology","Social Studies","Agriculture and Nutrition","Creative Arts","Religious Education"],
+"Grade 6":["English","Kiswahili","Mathematics","Science and Technology","Social Studies","Agriculture and Nutrition","Creative Arts","Religious Education"],
+"Grade 7":["English","Kiswahili","Mathematics","Integrated Science","Social Studies","Agriculture","Pre-Technical Studies","Creative Arts and Sports","Religious Education"],
+"Grade 8":["English","Kiswahili","Mathematics","Integrated Science","Social Studies","Agriculture","Pre-Technical Studies","Creative Arts and Sports","Religious Education"],
+"Grade 9":["English","Kiswahili","Mathematics","Integrated Science","Social Studies","Agriculture","Pre-Technical Studies","Creative Arts and Sports","Religious Education"]};
+const $=id=>document.getElementById(id);
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function fillSubjects(){let old=$("subject").value;$("subject").innerHTML=subjects[$("grade").value].map(x=>`<option>${x}</option>`).join("");if(subjects[$("grade").value].includes(old))$("subject").value=old;}
+function val(id,placeholder="Not specified"){return $(""+id).value.trim()||placeholder;}
+function block(title,id){let v=$(id).value.trim();return `<section><h3>${title}</h3>${v?`<div style="white-space:pre-line">${esc(v)}</div>`:"<p><em>To be completed / not specified.</em></p>"}</section>`;}
+function generate(){
+let date=$("date").value?new Date($("date").value+"T12:00:00").toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"}):"Not specified";
+let html=`${$("school").value.trim()?`<p style="text-align:center"><strong>${esc($("school").value.trim())}</strong></p>`:""}<h2>LESSON NOTES</h2><h3 style="text-align:center">${esc($("grade").value)} · ${esc($("subject").value)}</h3><div class="meta"><div><strong>Date:</strong> ${esc(date)}</div><div><strong>Duration:</strong> ${esc(val("duration"))}</div><div><strong>Strand:</strong> ${esc(val("strand"))}</div><div><strong>Sub-strand:</strong> ${esc(val("substrand"))}</div></div><hr>`;
+html+=block("Specific learning outcomes","outcomes")+block("Key content / notes","keycontent")+block("Prior knowledge / introduction","prior")+block("Learning resources","resources")+block("Learner-centred learning experiences","activities")+block("Teacher facilitation","teacherrole")+block("Assessment for learning","assessment")+block("Core competencies","competencies")+block("Values and pertinent issues","values")+block("Differentiation / learner support","differentiation")+block("Follow-up / extension","homework")+block("Teacher reflection","reflection");
+$("preview").innerHTML=html;
+}
+$("grade").addEventListener("change",fillSubjects);$("generate").addEventListener("click",generate);$("print").addEventListener("click",()=>{generate();window.print()});
+$("copy").addEventListener("click",()=>{generate();let t=$("preview").innerText;if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(()=>alert("Lesson notes copied."),()=>fallback(t));else fallback(t);});
+function fallback(t){let a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");a.remove();alert("Lesson notes copied.");}
+$("example").addEventListener("click",()=>{if(!$("strand").value)$("strand").value="Enter curriculum strand";if(!$("substrand").value)$("substrand").value="Enter curriculum sub-strand";$("outcomes").value="Use the exact specific learning outcomes from the relevant curriculum design."; $("keycontent").value="Add accurate key concepts, definitions, facts, worked examples and vocabulary for this lesson."; $("prior").value="Ask learners what they already know about the topic. Use a short question, picture, object or local situation to activate prior knowledge."; $("resources").value="Curriculum design, learner's book, board, locally available materials and relevant visual aids."; $("activities").value="1. Learners work individually to observe or read the provided material.\\n2. In pairs, learners compare findings and agree on key points.\\n3. Small groups complete a task or solve a problem and record their findings.\\n4. Groups share responses; classmates ask questions and improve answers.\\n5. Learners complete a short independent task to demonstrate understanding."; $("teacherrole").value="Set the task, explain safety and success criteria, ask probing questions, check understanding, and give brief targeted feedback. Avoid doing the thinking for learners."; $("assessment").value="Observe participation using a simple checklist; ask questions linked to each outcome; review group work; finish with a short exit ticket."; $("competencies").value="Select only the competencies supported by the planned learner activities and curriculum design."; $("values").value="Select relevant values and pertinent and contemporary issues that naturally connect to the content."; $("differentiation").value="Provide vocabulary prompts, visual supports or paired support where needed. Offer an extension challenge to learners ready for deeper work."; $("homework").value="Give a short follow-up task that reinforces the learning outcome and can be completed with accessible resources."; generate();});
+$("clear").addEventListener("click",()=>{if(confirm("Clear all lesson details?")){document.querySelectorAll("input,textarea").forEach(el=>el.value="");$("duration").value="40 minutes";$("grade").value="Grade 8";fillSubjects();$("preview").innerHTML='<div class="empty">Complete the lesson details and click <strong>Generate lesson notes</strong>.</div>'; }});
+fillSubjects();
+</script>
+</body>
+</html>

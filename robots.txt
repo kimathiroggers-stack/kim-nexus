@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kimathiroggers-stack.github.io/kim-nexus/sitemap.xml
